@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/<name>")
 def home(name):
-    return render_template("index.html", content=name)
+    return render_template("index.html", content=["PZY", "RU", "TOM"], storeid="LOFTONE")
 
 # @app.route("/<name>") #This lets us append /"string" at the end of our URL which is then passed on to our function as a parameter. 
 # def user(name):
