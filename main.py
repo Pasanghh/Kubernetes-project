@@ -14,8 +14,10 @@ def home(name):
 # def admin():
 #     return redirect(url_for("user", name="Admin")) #This redirects you to a specified page. Here de define the name of the function home so that this redirects us there.
 
+# ADDING BOOTSTRAP AND TEMPLATE INHERITANCE
+
 
 
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True) #debug set to true will mean we do not have to rerun the server everytime we make a change.
 
