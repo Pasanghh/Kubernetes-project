@@ -1,9 +1,19 @@
-from flask import flask
+from flask import Flask, redirect, url_for
 
-app = flask(_name_)
+app = Flask(__name__)
 
-@app.route('/hello')
-def helloIndex():
-    return 'Hello World from Python Flask!'
+@app.route("/")
+def home():
+    return "Hello this is the main page <h1>Hello<h1>"
 
-app.run(host='0.0.0.0', port=5000) #If you try a port like 80 it will complain because its a reserved port.
+@app.route("/<name>") #This lets us append /"string" at the end of our URL which is then passed on to our function as a parameter. 
+def user(name):
+    return f"Hello {name}!"
+
+@app.route("/admin")
+def admin():
+    return redirect(url_for("home")) #This redirects you to a specified page. Here de define the name of the function home so that this redirects us there. 
+
+if __name__=="__main__":
+    app.run()
+
