@@ -1,0 +1,13 @@
+
+<!-- Since this is a base template this template will never actually be rendered, it is something the child templates will inheret from-->
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <h1>Pasang's Website</h1>
+    {% block content %}
+    {% end content %}
+</body>
+</html>
