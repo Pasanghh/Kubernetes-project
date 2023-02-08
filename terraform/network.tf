@@ -1,17 +1,17 @@
 resource "google_compute_network" "vpc_network" {
   project                 = var.gcp_project
-  name                    = "vpc-network"
+  name                    = var.network_name
   auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" {
-  name          = "vpc-subnetwork"
-  ip_cidr_range = "10.2.0.0/16"
+  name          = var.subnetwork_name
+  ip_cidr_range = var.ip_cidr_range
   region        = var.gcp_region
   network       = google_compute_network.vpc_network.id
   secondary_ip_range {
-    range_name    = "tf-test-secondary-range-update1"
-    ip_cidr_range = "192.168.10.0/24"
+    range_name    = var.secondary_ip_range_name
+    ip_cidr_range = var.secondary_ip_range
   }
 }
 

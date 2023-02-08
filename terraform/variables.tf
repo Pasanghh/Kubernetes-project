@@ -15,3 +15,39 @@ variable "bucket_name" {
   description = "Terraform Backend Bucket"
   default = "tfstate-bucket-213"
 }
+
+variable "cluster_name" {
+  type = string
+  description = "GKE Cluster Name"
+  default = "pasanghh-cluster"
+}
+
+variable "network_name" {
+  type = string
+  description = "Network Name"
+  default = "vpc-network"
+}
+
+variable "subnetwork_name" {
+  type = string
+  description = "Subnetwork Name"
+  default = "vpc-subnetwork"
+}
+
+variable "ip_cidr_range" {
+  type = string
+  description = "Network IP Range"
+  default = "10.2.0.0/16"
+}
+
+variable "secondary_ip_range" {
+  type = string
+  description = "Network Secondary IP Range"
+  default = "192.168.10.0/24"
+}
+
+variable "secondary_ip_range_name" {
+  type = string
+  description = "Network Secondary IP Range name"
+  default = "vpc-secondary-subnetwork-range"
+}
