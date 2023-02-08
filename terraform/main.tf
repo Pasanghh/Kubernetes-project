@@ -7,7 +7,8 @@ terraform {
 }
 
 provider "google" {
-    project = "golden-object-376612"
-    region = "eurpoe-west2"
+    project = var.gcp_project
+    region = var.gcp_region
 
 }
+
