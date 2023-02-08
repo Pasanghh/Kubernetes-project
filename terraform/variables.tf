@@ -51,3 +51,21 @@ variable "secondary_ip_range_name" {
   description = "Network Secondary IP Range name"
   default = "vpc-secondary-subnetwork-range"
 }
+
+variable "cluster_sa_id" {
+  type = string
+  description = "Cluster Service Account ID"
+  default = "cluster-sa-id"
+}
+
+variable "nodepool_name" {
+  type = string
+  description = "Node Pool Name"
+  default = "my-node-pool"
+}
+
+variable "machine_type" {
+  type = string
+  description = "Machine Type"
+  default = "e2-medium"
+}

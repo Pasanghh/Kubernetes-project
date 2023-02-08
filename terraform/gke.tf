@@ -1,11 +1,11 @@
 resource "google_service_account" "default" {
-  account_id   = "service-account-id"
-  display_name = "Service Account"
+  account_id   = var.cluster_sa_id
+  display_name = "Cluster Service Account"
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "my-gke-cluster"
-  location = "us-central1"
+  name     = var.cluster_name
+  location = var.gcp_region
 
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
@@ -15,14 +15,14 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "my-node-pool"
-  location   = "us-central1"
+  name       = var.nodepool_name
+  location   = var.gcp_region
   cluster    = google_container_cluster.primary.name
   node_count = 1
 
   node_config {
     preemptible  = true
-    machine_type = "e2-medium"
+    machine_type = var.machine_type
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
     service_account = google_service_account.default.email
